@@ -29,3 +29,8 @@ docker container run -d \
     --link wiki_mysql:db \ # link mysql
     heidai/mm-wiki
 ```
+
+## How to Configure
+1. <http://127.0.0.1:8080>, configure it.
+2. Restart your mm-wiki container.
+3. <http://127.0.0.1:8080>, login. Default user is 'root', and pwssword is what you set in mysql container.
