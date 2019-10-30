@@ -1,9 +1,11 @@
 #FROM alpine:3.8
 FROM centos:7.5.1804
-MAINTAINER heidai
-LABEL name="mm-wiki" 
-COPY  mm-wiki-linux-amd64.tar.gz /
-COPY  docker-entrypoint.sh /bin/
+MAINTAINER 217heidai
+LABEL name="mm-wiki"
+ENV TZ=Asia/Shanghai
+
+COPY mm-wiki-linux-amd64.tar.gz /
+COPY docker-entrypoint.sh /bin/
 RUN set -ex; \
 	chmod a+x /bin/docker-entrypoint.sh; \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime; \

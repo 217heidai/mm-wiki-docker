@@ -8,5 +8,6 @@ if [ ! -e /mm-wiki/conf/template.conf  ]; then
     cd install
     ./install -port 8080
 else
+    echo `date "+%Y-%m-%d %H:%M:%S"`' >>>>>> start mm-wiki service'
     ./mm-wiki --conf conf/mm-wiki.conf
 fi
