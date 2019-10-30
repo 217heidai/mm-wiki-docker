@@ -8,7 +8,7 @@ docker container run -d \
     --restart=always \
     --name wiki_mysql \
     -v $HOME/mysql/etc/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf \ # mysql config file
-	-v $HOME/mysql/data:/var/lib/mysql \ # mysql data
+    -v $HOME/mysql/data:/var/lib/mysql \ # mysql data
     -e MYSQL_ROOT_PASSWORD=mm_wiki \ # mysql root password
     -e MYSQL_USER=mm_wiki \ # mm-wiki user name
     -e MYSQL_PASSWORD=mm_wiki \ # mm-wiki user password
