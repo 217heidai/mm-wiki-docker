@@ -39,3 +39,9 @@ docker container run -d \
 1. stop and remove your existing mm-wiki container.
 2. setup new mm-wiki container.
 3. reboot the new mm-wiki container.
+
+## ChangeLog
+| Date      | Content                                                              |
+|-----------|----------------------------------------------------------------------|
+| 2019.12.13 | mm-wiki v0.1.4 |
+| 2019.08.31 | mm-wiki v0.1.3 |
