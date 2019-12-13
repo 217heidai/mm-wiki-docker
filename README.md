@@ -25,12 +25,17 @@ docker container run -d \
     --name wiki \
     -p 8080:8080 \
     -v $HOME/wiki/bin:/mm-wiki \ # mm-wiki
-    -v $HOME/wiki/wiki/data:/data \ # mm-wiki data
+    -v $HOME/wiki/data:/data \ # mm-wiki data
     --link wiki_mysql:db \ # link mysql
-    heidai/mm-wiki
+    217heidai/mm-wiki
 ```
 
-## How to Configure
+## 3. How to Configure
 1. <http://127.0.0.1:8080>, configure it.
 2. Restart your mm-wiki container.
 3. <http://127.0.0.1:8080>, login. Default user is 'root', and pwssword is what you set in mysql container.
+
+# How to Upgrade
+1. stop and remove your existing mm-wiki container.
+2. setup new mm-wiki container.
+3. reboot the new mm-wiki container.
