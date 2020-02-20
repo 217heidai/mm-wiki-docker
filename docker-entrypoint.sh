@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=v0.1.6
+VERSION=v0.1.7
 
 if [ -e /etc/mm-wiki/firstrun ]; then
     rm -rf /etc/mm-wiki

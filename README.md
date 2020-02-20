@@ -14,8 +14,8 @@ docker container run -d \
     -e MYSQL_PASSWORD=mm_wiki \ # mm-wiki user password
     -e MYSQL_DATABASE=mm_wiki \ # mm-wiki database name
     -d mysql:5.7 \
-    --character-set-server=utf8 \
-    --collation-server=utf8_bin
+    --character-set-server=utf8mb4 \
+    --collation-server=utf8mb4_unicode_ci
 ```
 
 ## 2. Setup mm-wiki
@@ -43,6 +43,7 @@ docker container run -d \
 ## ChangeLog
 | Date      | Content                                                              |
 |-----------|----------------------------------------------------------------------|
+| 2020.02.20 | mm-wiki v0.1.7 |
 | 2020.02.19 | mm-wiki v0.1.6 |
 | 2019.12.30 | mm-wiki v0.1.5 |
 | 2019.12.13 | mm-wiki v0.1.4 |

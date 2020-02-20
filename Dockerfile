@@ -1,9 +1,8 @@
-#FROM alpine:3.8
 FROM centos:7.5.1804
 MAINTAINER 217heidai
 LABEL name="mm-wiki"
 ENV TZ=Asia/Shanghai
-ENV VERSION=v0.1.6
+ENV VERSION=v0.1.7
 
 COPY mm-wiki-$VERSION-linux-amd64.tar.gz /
 COPY docker-entrypoint.sh /bin/
