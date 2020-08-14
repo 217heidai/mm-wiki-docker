@@ -1,8 +1,8 @@
 FROM centos:7.5.1804
-MAINTAINER 217heidai
+LABEL maintainer="217heidai"
 LABEL name="mm-wiki"
 ENV TZ=Asia/Shanghai
-ENV VERSION=v0.1.9
+ENV VERSION=v0.2.0
 
 COPY mm-wiki-$VERSION-linux-amd64.tar.gz /
 COPY docker-entrypoint.sh /bin/
