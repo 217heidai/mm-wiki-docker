@@ -1,6 +1,5 @@
 # mm-wiki-docker
 mm-wiki docker image. <https://github.com/phachon/mm-wiki>
-dockerfile :<https://github.com/217heidai/mm-wiki-docker>
 
 # How to Setup
 ## 1. Setup mysql
