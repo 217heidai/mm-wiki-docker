@@ -1,4 +1,4 @@
-FROM centos:7.5.1804
+FROM centos:7.9.2009
 LABEL maintainer="217heidai"
 LABEL name="mm-wiki"
 ENV TZ=Asia/Shanghai
