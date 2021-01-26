@@ -2,9 +2,8 @@ FROM centos:7.9.2009
 LABEL maintainer="217heidai"
 LABEL name="mm-wiki"
 ENV TZ=Asia/Shanghai
-ENV VERSION=v0.2.1
 
-COPY mm-wiki-$VERSION-linux-amd64.tar.gz /
+COPY mm-wiki-linux-amd64.tar.gz /
 COPY docker-entrypoint.sh /bin/
 RUN set -ex; \
 	mkdir /etc/mm-wiki; \
