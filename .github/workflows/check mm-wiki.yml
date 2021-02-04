@@ -28,7 +28,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: .releaseTag
-        key: releaseTag-${{ steps.getReleaseTag.outputs.releaseTag }}
+        key: test-${{ steps.getReleaseTag.outputs.releaseTag }}
 
     - name: Save New Release Tag
       if: steps.compareReleaseTag.outputs.cache-hit != 'true'
