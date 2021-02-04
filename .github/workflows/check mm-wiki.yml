@@ -28,7 +28,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: .releaseTag
-        key: ${{ steps.getReleaseTag.outputs.releaseTag }}
+        key: releaseTag-${{ steps.getReleaseTag.outputs.releaseTag }}
 
     - name: Save New Release Tag
       if: steps.compareReleaseTag.outputs.cache-hit != 'true'
@@ -39,7 +39,7 @@ jobs:
       if: steps.compareReleaseTag.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.MY_TOKEN }}
         event-type: on-update
 
     - name: Delete Workflow Runs

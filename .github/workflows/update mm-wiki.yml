@@ -2,7 +2,7 @@ name: Update mm-wiki
 
 on: 
   repository_dispatch:
-
+    types: [on-update]
 env:
   REPOSITORY: mm-wiki
   OWNER: phachon
