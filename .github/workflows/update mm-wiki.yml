@@ -2,7 +2,6 @@ name: Update mm-wiki
 
 on: 
   repository_dispatch:
-    types: [Update]
 
 env:
   REPOSITORY: mm-wiki
