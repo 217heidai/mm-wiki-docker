@@ -2,7 +2,7 @@ name: Update mm-wiki
 
 on: 
   repository_dispatch:
-    types: mm-wiki Update
+    types: [Update]
 
 env:
   REPOSITORY: mm-wiki
@@ -58,3 +58,9 @@ jobs:
       - name: WeChat Notification
         if: steps.commit.outputs.status == 'success' && !cancelled()
         run: curl https://sc.ftqq.com/${{ secrets.SERVERCHAN }}.send?text=mm-wiki更新完成
+
+      - name: Delete Workflow Runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 30
+          keep_minimum_runs: 10
