@@ -1,10 +1,7 @@
 name: Update mm-wiki
 
 on: 
-  push:
-    branches: [ master ]
-  schedule:
-  - cron: 0 23 * * *
+  repository_dispatch:
 
 env:
   REPOSITORY: mm-wiki
@@ -28,10 +25,6 @@ jobs:
           echo "VERSION=$VERSION"  >> $GITHUB_ENV
           wget https://github.com/${{env.OWNER}}/${{env.REPOSITORY}}/releases/download/$VERSION/mm-wiki-$VERSION-linux-amd64.tar.gz
           mv mm-wiki-$VERSION-linux-amd64.tar.gz mm-wiki-linux-amd64.tar.gz
-
-      - name: Update dockerfile
-        run: |
-
 
       - name: Commit Changes
         id: commit

@@ -1,0 +1,49 @@
+name: Check mm-wiki
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+  schedule:
+    - cron: 0 23 * * *
+
+env:
+  REPOSITORY: mm-wiki
+  OWNER: phachon
+
+jobs:
+  Check_mm-wiki:
+    name: Check mm-wiki
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get Release Tag
+      id: getReleaseTag
+      run: |
+        VERSION=$(curl -s "https://api.github.com/repos/${{env.OWNER}}/${{env.REPOSITORY}}/releases/latest" | awk -F '"' '/tag_name/{print $4}')
+        echo "::set-output name=releaseTag::$VERSION"
+
+    - name: Compare Release Tag
+      id: compareReleaseTag
+      uses: actions/cache@v2
+      with:
+        path: .releaseTag
+        key: HEAD-${{ steps.getReleaseTag.outputs.releaseTag }}
+
+    - name: Save New Release Tag
+      if: steps.compareReleaseTag.outputs.cache-hit != 'true'
+      run: |
+        echo ${{ steps.getReleaseTag.outputs.releaseTag }} | tee .releaseTag
+  
+    - name: Create a Repository Dispatch Event
+      if: steps.compareReleaseTag.outputs.cache-hit != 'true'
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        event-type: mm-wiki Update
+
+    - name: Delete Workflow Runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 30
+        keep_minimum_runs: 10
